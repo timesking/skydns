@@ -109,7 +109,7 @@ func main() {
 	if discover {
 		go func() {
 			recv := make(chan *etcd.Response)
-			go client.Watch("/_etcd/machines/", 0, true, recv, nil)
+			go client.Watch("v2/machines", 0, true, recv, nil)
 			duration := 1 * time.Second
 			for {
 				select {
